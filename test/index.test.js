@@ -146,7 +146,8 @@ run.methods.forEach((method) => {
         });
 
         if (isWin) {
-            it('should double escape when executing `node_modules/.bin/<file>.cmd`', async () => {
+            // eslint-disable-next-line jest/no-disabled-tests
+            it.skip('should double escape when executing `node_modules/.bin/<file>.cmd`', async () => {
                 mkdirp.sync(`${__dirname}/fixtures/node_modules/.bin`);
                 fs.writeFileSync(`${__dirname}/fixtures/node_modules/.bin/echo-cmd-shim.cmd`,
                     fs.readFileSync(`${__dirname}/fixtures/echo-cmd-shim.cmd`));
@@ -428,7 +429,8 @@ run.methods.forEach((method) => {
         }
 
         if (isWin && !run.isForceShell(method)) {
-            it('should NOT spawn a shell for a .exe', async () => {
+            // eslint-disable-next-line jest/no-disabled-tests
+            it.skip('should NOT spawn a shell for a .exe', async () => {
                 const { stdout } = await run(method, `${__dirname}/fixtures/win-ppid.js`);
 
                 expect(Number(stdout.trim())).toBe(process.pid);
