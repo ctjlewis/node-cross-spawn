@@ -247,7 +247,7 @@ run.methods.forEach((method) => {
                 expect(err.message).toMatch('ENOENT');
                 expect(err.message).not.toMatch('undefined');
                 expect(err.code).toBe('ENOENT');
-                expect(err.errno).toBe('ENOENT');
+                expect(err.errno).toBe(-2);
                 expect(err.syscall).toMatch(syscall);
                 expect(err.syscall).not.toMatch('undefined');
                 expect(err.path).toMatch('somecommandthatwillneverexist');
